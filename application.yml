@@ -1,0 +1,19 @@
+#  --- 三个横杠可以区分多个配置环境信息
+spring:
+  profiles:
+    active:         #激活如下的配置为开发环境
+      -dev
+---
+spring:
+     profiles: dev    #开发环境
+     application:
+       name: springcloud-config-xll-dev               #微服务名称
+
+---
+spring:
+  profiles: test        #测试环境
+  application:
+    name: springcloud-config-xll-test                 #微服务名称
+
+
+#注意：保存为UTF-8格式
