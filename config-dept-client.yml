@@ -1,8 +1,8 @@
 #  --- 三个横杠可以区分多个配置环境信息
-spring:
-  profiles:
-    active:         #激活如下的配置为开发环境
-      -dev
+#spring:
+#  profiles:
+#    active:         #激活如下的配置为开发环境
+#      -dev
 ---
 #provider-8001号服务配置
 server:
