@@ -4,12 +4,13 @@ spring:
     active:         #激活如下的配置为开发环境
       -dev
 ---
+#服务注册中心Eureka的配置文件 7001号服务
 server: 
   port: 7001
 spring:
-     profiles: dev    #开发环境
+     profiles: springcloud-config-eureka-7001    #开发环境
      application:
-       name: springcloud-config-eureka-dev               #微服务名称
+       name: springcloud-config-eureka-7001              #微服务名称
 eureka: 
   instance:
     hostname: eureka7001.com  #eureka服务端的实例名称   eureka7001.com
@@ -17,23 +18,39 @@ eureka:
     register-with-eureka: false     #false表示不向注册中心注册自己。
     fetch-registry: false     # #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
     service-url: 
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/       
-#      defaultZone: http://eureka7001.com:7001/eureka   
----      
-server: 
-  port: 7001
-spring:
-     profiles: test    #开发环境
-     application:
-       name: springcloud-config-eureka-test               #微服务名称
-eureka: 
-  instance:
-    hostname: eureka7001.com  #eureka服务端的实例名称   eureka7001.com
-  client: 
-    register-with-eureka: false     #false表示不向注册中心注册自己。
-    fetch-registry: false     # #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
-    service-url: 
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/       
-#      defaultZone: http://eureka7001.com:7001/eureka  
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/      
 
+--- 
+#服务注册中心Eureka的配置文件 7002号服务
+server: 
+  port: 7002
+spring:
+     profiles: springcloud-config-eureka-7002    #开发环境
+     application:
+       name: springcloud-config-eureka-7002               #微服务名称
+eureka: 
+  instance:
+    hostname: eureka7002.com  #eureka服务端的实例名称   eureka7001.com
+  client: 
+    register-with-eureka: false     #false表示不向注册中心注册自己。
+    fetch-registry: false     # #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service-url:     
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7003.com:7003/eureka/  
+
+--- 
+#服务注册中心Eureka的配置文件 7002号服务
+server: 
+  port: 7003
+spring:
+     profiles: springcloud-config-eureka-7003    #开发环境
+     application:
+       name: springcloud-config-eureka-7003               #微服务名称
+eureka: 
+  instance:
+    hostname: eureka7003.com  #eureka服务端的实例名称   eureka7001.com
+  client: 
+    register-with-eureka: false     #false表示不向注册中心注册自己。
+    fetch-registry: false     # #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service-url:     
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/  
       
