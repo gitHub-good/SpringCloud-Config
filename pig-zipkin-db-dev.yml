@@ -12,7 +12,7 @@ spring:
 zipkin:
   collector:
     rabbitmq:
-      addresses: 127.0.0.1:5682
+      addresses: 192.168.10.152:5682
       password: xll
       username: pig
       queue: zipkin
