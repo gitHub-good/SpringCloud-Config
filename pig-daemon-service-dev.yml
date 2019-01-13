@@ -9,5 +9,5 @@ spring:
     url: jdbc:mysql://127.0.0.1:3309/pig?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
   elasticjob:
     zookeeper:
-      server-lists: 127.0.0.1:2181
+      server-lists: 192.168.10.152:2181
       namespace: pig-daemon
